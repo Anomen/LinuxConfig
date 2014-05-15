@@ -12,23 +12,22 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 Bundle 'git@github.com:bling/vim-airline.git'
-"Bundle 'git@github.com:altercation/vim-colors-solarized.git'
 Bundle 'git@github.com:tomasr/molokai.git'
 Bundle 'git@github.com:jgdavey/vim-railscasts.git'
 Bundle 'git@github.com:sickill/vim-monokai.git'
 Bundle 'git@github.com:tpope/vim-fugitive.git'
-"Bundle 'git@github.com:bling/vim-bufferline.git'
 Bundle 'git@github.com:kien/ctrlp.vim.git'
 Bundle 'git@github.com:mbbill/undotree.git'
 Bundle 'git@github.com:scrooloose/syntastic.git'
 Bundle 'git@github.com:scrooloose/nerdtree.git'
 Bundle 'git@github.com:jistr/vim-nerdtree-tabs.git'
-Bundle 'git@github.com:SirVer/ultisnips.git'
+"Bundle "git@github.com:mihaifm/vimpanel.git"
+"Bundle 'git@github.com:SirVer/ultisnips.git'
 Bundle 'git@github.com:tomtom/tcomment_vim.git'
-Bundle 'git@github.com:Raimondi/delimitMate.git'
-"Bundle 'git@github.com:christoomey/vim-tmux-navigator.git'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'git@github.com:terryma/vim-multiple-cursors.git'
+Bundle "https://github.com/wookiehangover/jshint.vim.git"
+Bundle "git@github.com:digitaltoad/vim-jade.git"
+Bundle "git@github.com:airblade/vim-gitgutter"
 
 syntax on                       " enable syntax highlighting
 filetype plugin indent on       " required!
@@ -65,11 +64,16 @@ set term=screen-256color
 colorscheme monokai
 "colorscheme railscasts
 
+highlight SpellBad term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
+
+set cursorline
+set cursorcolumn
+
 "==================================================
 " Airline
 "==================================================
 let g:airline_theme             = 'molokai'
-let g:airline_enable_branch     = 1
+let g:airline_enable_branch     = 0
 let g:airline_enable_syntastic  = 0
 let g:airline_inactive_collapse = 0
 
@@ -92,11 +96,11 @@ let g:airline#extensions#branch#enabled = 1     " enable git branch
 let g:bufferline_echo = 1
 let g:bufferline_show_bufnr = 0
 
-autocmd FileType ruby source ~/.vim/script/demi_indent
-autocmd FileType javascript source ~/.vim/script/demi_indent
-autocmd FileType yml source ~/.vim/script/demi_indent
-autocmd FileType css source ~/.vim/script/demi_indent
-autocmd FileType rhtml,html,eruby source ~/.vim/script/demi_indent
+"autocmd FileType ruby source ~/.vim/script/demi_indent
+"autocmd FileType javascript source ~/.vim/script/demi_indent
+"autocmd FileType yml source ~/.vim/script/demi_indent
+"autocmd FileType css source ~/.vim/script/demi_indent
+"autocmd FileType rhtml,html,eruby source ~/.vim/script/demi_indent
 
 "==================================================
 " Numerical pad
@@ -123,3 +127,9 @@ imap ^[OC <ESC>li
 imap ^[OD <ESC>hi
 
 map <f9> :NERDTreeTabsToggle<cr>
+map <F2> :mksession! ~/vim_session <cr> " Quick write session with F2
+map <F3> :source ~/vim_session <cr>     " And load session with F3
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*,*.min.js
+
+let g:gitgutter_highlight_lines = 1

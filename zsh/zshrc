@@ -5,7 +5,7 @@ ZSH=$HOME/.vickev/zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="afowler"
+ZSH_THEME="gnzh"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -37,7 +37,7 @@ ZSH_THEME="afowler"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 #
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOSTART_ONCE=false
 ZSH_TMUX_AUTOCONNECT=false
 ZSH_TMUX_FIXTERM_WITH_256COLOR=true
@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=$HOME/.local/bin:$HOME/.local/bin/Sencha/Cmd/4.0.0.203:$HOME/.android/sdk/platform-tools:$HOME/.android/sdk/tools:$PATH
+export PATH=$HOME/.local/bin:$HOME/.local/bin/Sencha/Cmd/4.0.0.203:$HOME/.android/sdk/platform-tools:$HOME/.android/sdk/tools:/usr/local/bin:$PATH
 
 bindkey '[5~' history-beginning-search-backward
 bindkey '[6~' history-beginning-search-forward
