@@ -28,6 +28,11 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle "https://github.com/wookiehangover/jshint.vim.git"
 Bundle "git@github.com:digitaltoad/vim-jade.git"
 Bundle "git@github.com:airblade/vim-gitgutter"
+Bundle "git@github.com:basepi/vim-conque.git"
+Bundle "git@github.com:xolox/vim-session.git"
+Bundle "git@github.com:xolox/vim-misc.git"
+Bundle "git@github.com:pangloss/vim-javascript.git"
+Bundle "git@github.com:junegunn/vim-easy-align.git"
 
 syntax on                       " enable syntax highlighting
 filetype plugin indent on       " required!
@@ -65,6 +70,7 @@ colorscheme monokai
 "colorscheme railscasts
 
 highlight SpellBad term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
+highlight Type ctermfg=154 guifg=#e6db74
 
 set cursorline
 set cursorcolumn
@@ -127,9 +133,13 @@ imap ^[OC <ESC>li
 imap ^[OD <ESC>hi
 
 map <f9> :NERDTreeTabsToggle<cr>
+map <f12> :GitGutterLineHighlightsToggle<cr>
 map <F2> :mksession! ~/vim_session <cr> " Quick write session with F2
 map <F3> :source ~/vim_session <cr>     " And load session with F3
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*,*.min.js
 
 let g:gitgutter_highlight_lines = 1
+let b:javascript_fold = 1
+set foldmethod=syntax
+set foldlevelstart=20
