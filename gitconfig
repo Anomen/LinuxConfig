@@ -1,0 +1,42 @@
+[user]
+	name = Kevin Vicrey
+    email = kevin.vicrey@nexu.org
+#[core]
+#    excludesfile = /home/msi/.config/git/gitignore_global
+[color]
+    status = auto
+    diff = auto
+    interactive = auto
+    branch = auto
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    cdiff = diff --cached
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset ·%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset · %C(bold blue)%an%Creset' --abbrev-commit --
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+#[log]
+#   graph = yes
+#   decorate = yes
+#   pretty = short
+#   date = local
+#   branches = yes
+#   abbrev-commit
+
+[format]
+    #pretty = short
+
+[log]
+    date = local
+
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 425x173+584+396
+	history-view-vpane-position = 595
+	file-view-vpane-position = 879
+	main-window-view = HistoryView
+[push]
+	default = current
+[diff]
+	tool = vimdiff
