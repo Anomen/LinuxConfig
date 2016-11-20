@@ -1,5 +1,5 @@
 #!/bin/sh
-rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.themes/Anomen* ~/.gitconfig
+rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.themes/{Anomen*,Orion} ~/.gitconfig
 ln -s ~/.vickev/vim/vimrc ~/.vimrc
 ln -s ~/.vickev/zsh/zshrc ~/.zshrc
 ln -s ~/.vickev/tmux/tmux.conf ~/.tmux.conf
