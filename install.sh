@@ -8,6 +8,11 @@ cp -r ~/.vickev/themes/* ~/.themes
 cp -r ~/.vickev/autostart/* ~/.config/autostart/
 
 sudo dpkg -i ~/.vickev/packages/*.deb
-sudo apt-get install -f
+
+# Diodon
+sudo add-apt-repository ppa:diodon-team/stable
+sudo apt-get update
+
+sudo apt-get install -f diodon
 
 echo 'source ~/.vickev/bashrc' >> ~/.bashrc
