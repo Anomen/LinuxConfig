@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Anomen-dark
+Type=X-GNOME-Metatheme
+Comment=
+
+[X-GNOME-Metatheme]
+GtkTheme=Orion
+MetacityTheme=Ambiance-Flat-zFusion-Purple
+IconTheme=Vibrancy-Light-Purple
+GtkColorScheme=base_color:#fff,fg_color:#101010,tooltip_fg_color:#000,selected_bg_color:#a97660,selected_fg_color:#fff,text_color:#1a1a1a,bg_color:#efebe7,tooltip_bg_color:#f5f5b5,link_color:#569be4
+CursorTheme=DMZ-White
+CursorSize=24
