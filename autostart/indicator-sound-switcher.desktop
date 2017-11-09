@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Exec=indicator-sound-switcher
-Hidden=false
-X-MATE-Autostart-enabled=true
-Name[en_US]=sound switcher
-Name=sound switcher
-Comment[en_US]=
-Comment=
