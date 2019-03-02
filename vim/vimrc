@@ -55,8 +55,8 @@ set mouse=
 " Set colors
 set t_Co=256
 set term=screen-256color
-colorscheme monokai
-"colorscheme railscasts
+"colorscheme monokai
+colorscheme railscasts
 
 highlight SpellBad term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
 highlight Type ctermfg=154 guifg=#e6db74
@@ -67,8 +67,8 @@ set cursorcolumn
 "==================================================
 " Buffer line
 "==================================================
-let g:bufferline_echo = 1
-let g:bufferline_show_bufnr = 0
+"let g:bufferline_echo = 1
+"let g:bufferline_show_bufnr = 0
 
 "autocmd FileType ruby source ~/.vim/script/demi_indent
 "autocmd FileType javascript source ~/.vim/script/demi_indent
