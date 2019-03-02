@@ -25,7 +25,7 @@ Bundle 'git@github.com:tomtom/tcomment_vim.git'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle "https://github.com/wookiehangover/jshint.vim.git"
 Bundle "git@github.com:digitaltoad/vim-jade.git"
-Bundle "git@github.com:airblade/vim-gitgutter"
+"Bundle "git@github.com:airblade/vim-gitgutter"
 Bundle "git@github.com:basepi/vim-conque.git"
 Bundle "git@github.com:xolox/vim-misc.git"
 Bundle "git@github.com:pangloss/vim-javascript.git"
@@ -55,8 +55,8 @@ set mouse=
 " Set colors
 set t_Co=256
 set term=screen-256color
-colorscheme molokai
-"colorscheme monokai
+"colorscheme molokai
+colorscheme monokai
 "colorscheme railscasts
 
 highlight SpellBad term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
