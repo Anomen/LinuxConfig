@@ -11,7 +11,8 @@ ln -s ~/.vickev/omf ~/.config/omf
 # Install fish
 if [ "$OSTYPE" = "linux-gnu" ] ; then
     echo "Install Fish"
-    sudo -s bash -c "apt-get install fish"
+    sudo -s bash -c "apt-get install fish autojump"
+	curl -L https://get.oh-my.fish | fish
     fish -c "omf install"
 fi;
 
