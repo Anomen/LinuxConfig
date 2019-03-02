@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf
+rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf ~/.inputrc
 ln -s ~/.vickev/vim/vimrc ~/.vimrc
 ln -s ~/.vickev/zsh/zshrc ~/.zshrc
 ln -s ~/.vickev/tmux/tmux.conf ~/.tmux.conf
