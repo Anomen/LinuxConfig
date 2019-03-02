@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf
 ln -s ~/.vickev/vim/vimrc ~/.vimrc
 ln -s ~/.vickev/zsh/zshrc ~/.zshrc
@@ -11,7 +11,9 @@ ln -s ~/.vickev/omf ~/.config/omf
 
 # Install fish
 if [ "$OSTYPE" = "linux-gnu" ] ; then
+    echo "Install Fish"
     sudo -s bash -c "apt-get install fish"
+    fish -c "omf install"
 fi;
 
 echo 'source ~/.vickev/bashrc' >> ~/.bashrc
