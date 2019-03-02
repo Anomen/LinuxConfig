@@ -1,8 +1,9 @@
 #!/bin/bash
-rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf ~/.inputrc
+rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf ~/.inputrc ~/.tmux
 ln -s ~/.vickev/vim/vimrc ~/.vimrc
 ln -s ~/.vickev/zsh/zshrc ~/.zshrc
 ln -s ~/.vickev/tmux/tmux.conf ~/.tmux.conf
+ln -s ~/.vickev/tmux ~/.tmux
 ln -s ~/.vickev/gitconfig ~/.gitconfig
 ln -s ~/.vickev/inputrc ~/.inputrc
 ln -s ~/.vickev/fish ~/.config/fish
