@@ -13,3 +13,8 @@ alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(ref
 alias ll='ls -l'
 
 export EDITOR=vim
+
+git config merge.tool vimdiff
+git config merge.conflictstyle diff3
+git config mergetool.prompt false
+

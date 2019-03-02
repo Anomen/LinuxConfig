@@ -7,3 +7,8 @@ bind -k ppage history-search-backward
 bind -k npage history-search-forward
 
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+
+git config merge.tool vimdiff
+git config merge.conflictstyle diff3
+git config mergetool.prompt false
+
