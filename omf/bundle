@@ -1,6 +1,8 @@
 package foreign-env
 package https://github.com/decors/fish-colored-man
+package https://github.com/matchai/spacefish.git
 package nvm
+package spacefish
 package yadd
 theme default
 theme spacefish
