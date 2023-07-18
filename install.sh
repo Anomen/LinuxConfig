@@ -9,12 +9,12 @@ ln -s ~/.vickev/inputrc ~/.inputrc
 ln -s ~/.vickev/fish ~/.config/fish
 ln -s ~/.vickev/omf ~/.config/omf
 
-# Install fish
-if [ "$OSTYPE" = "linux-gnu" ] ; then
-    echo "Install Fish"
-    sudo -s bash -c "apt-get install fish autojump curl"
-	curl -L https://get.oh-my.fish | fish
-    fish -c "omf install"
-fi;
+## Install fish
+#if [ "$OSTYPE" = "linux-gnu" ] ; then
+#    echo "Install Fish"
+#    sudo -s bash -c "apt-get install fish autojump curl"
+#	curl -L https://get.oh-my.fish | fish
+#    fish -c "omf install"
+#fi;
 
 echo 'source ~/.vickev/bashrc' >> ~/.bashrc
