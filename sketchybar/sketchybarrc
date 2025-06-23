@@ -7,7 +7,7 @@
 source "$CONFIG_DIR/colors.sh"
 
 # Load custom fonts
-sketchybar --load-font "$HOME/Library/Fonts/sketchybar-app-font.ttf"
+sketchybar --load-font "$HOME/.vickev/fonts/sketchybar-app-font.ttf"
 
 # Plugin directory
 PLUGIN_DIR="$CONFIG_DIR/plugins"
