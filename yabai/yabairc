@@ -135,8 +135,9 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 
 
-options=(                                                                                                                          style=round                                                                                                                    width=7.0                                                                                                                     hidpi=off                    
-    active_color=0xFFFFA500
+options=(
+    # active_color=0xFFFFA500 # Orange
+    active_color=0xFFFF0000 # Red
     inactive_color=0xFF0000000
     background_color=0xFF0000000
     #width=2
