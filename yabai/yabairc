@@ -124,6 +124,24 @@ yabai -m rule --add app='^Finder$' title="^Copy$" manage=off
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
+#================================================================================
+# SketchyBar Integration Signals
+#================================================================================
+# These signals are sent to SketchyBar to trigger UI updates.
+
+# "Fast Path": This runs instantly when you switch spaces.
+yabai -m signal --add event=space_changed \
+    action="$HOME/.config/sketchybar/plugins/space_change.sh"
+
+# "Slow Path": This runs only when apps open, close, or move.
+yabai -m signal --add event=application_launched \
+    action="$HOME/.config/sketchybar/plugins/space.sh"
+yabai -m signal --add event=application_terminated \
+    action="$HOME/.config/sketchybar/plugins/space.sh"
+yabai -m signal --add event=window_moved \
+    action="$HOME/.config/sketchybar/plugins/space.sh"
+
+
 #yabai -m config window_animation_duration  0.1            \
 ##                window_animation_easing    ease_out_quint \
 ##                insert_feedback_color      0xff9dd274     \
@@ -139,9 +157,9 @@ options=(
     #active_color=0xFFFFA500 # Orange
     active_color=0xFFFF0000 # Red
     inactive_color=0xFF0000000
-    background_color=0xFF0000000
+    background_color=0x000000000
     #width=2
-    style=square
+    style=round
     hidpi=on
     ax_focus=on
     #blur_radius=25
