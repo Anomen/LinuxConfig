@@ -158,8 +158,8 @@ yabai -m signal --add event=window_moved \
 
 
 options=(
-    #active_color=0xFFFFA500 # Orange
-    active_color=0xFFFF0000 # Red
+    active_color=0xFFFFA500 # Orange
+    #active_color=0xFFFF0000 # Red
     inactive_color=0xFF0000000
     background_color=0x000000000
     width=7
