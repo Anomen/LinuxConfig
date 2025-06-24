@@ -45,7 +45,7 @@ sketchybar --default \
 #===============================================================================
 
 # Space definitions
-SPACE_ICONS=("1" "2" "3" "Work" "Obsidian" "Code" "Spotify" "Messages" "Email" "Perso" "Bamboo")
+SPACE_ICONS=("1" "2" "3" "4" "5" "Work" "Obsidian" "Code" "Spotify" "Messages" "Email" "Perso" "Bamboo" "Illustration")
 
 # Create spaces with integrated app icons
 for i in "${!SPACE_ICONS[@]}"; do

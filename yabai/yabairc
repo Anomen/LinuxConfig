@@ -13,7 +13,7 @@ yabai -m config bottom_padding 43
 yabai -m config left_padding 63
 #yabai -m config left_padding 61
 yabai -m config right_padding 3
-yabai -m config window_gap 3
+yabai -m config window_gap 5
 
 # Window modifications
 yabai -m config window_topmost on
@@ -45,14 +45,17 @@ function setup_space {
 setup_space 1 general-1
 setup_space 2 general-2
 setup_space 3 general-3
-setup_space 4 work
-setup_space 5 obsidian
-setup_space 6 code
-setup_space 7 spotify
-setup_space 8 messages
-setup_space 9 email
-setup_space 10 perso
-setup_space 11 bamboo
+setup_space 4 general-4
+setup_space 5 general-5
+setup_space 6 work
+setup_space 7 obsidian
+setup_space 8 code
+setup_space 9 spotify
+setup_space 10 messages
+setup_space 11 email
+setup_space 12 perso
+setup_space 13 bamboo
+setup_space 14 illustration
 
 
 yabai -m rule --add app="Spotify" space=^spotify
@@ -67,6 +70,7 @@ yabai -m rule --add app="Calendar" space=^work
 yabai -m rule --add app="Slack" space=^work
 yabai -m rule --add app="Miro" space=^work
 yabai -m rule --add app="Bambu Studio" space=^bamboo
+yabai -m rule --add app="Lightroom" space=^illustration
 
 
 # -- mouse settings --
@@ -158,7 +162,7 @@ options=(
     active_color=0xFFFF0000 # Red
     inactive_color=0xFF0000000
     background_color=0x000000000
-    #width=2
+    width=7
     style=round
     hidpi=on
     ax_focus=on
