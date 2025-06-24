@@ -1,38 +1,71 @@
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
+#!/usr/bin/env sh
 
-# default layout (can be bsp, stack or float)
+#================================================================================
+# Startup & Scripting Addition
+#================================================================================
+# Ensure the scripting addition is loaded. This is required for many features.
+# The signal ensures it's reloaded if the Dock restarts.
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+#================================================================================
+# Global Settings
+#================================================================================
+
+# Default layout mode (bsp, stack, or float)
 yabai -m config layout bsp
 
-# new window spawns to the right if vertical split, or bottom if horizontal split
+# New window placement (second_child or first_child)
 yabai -m config window_placement second_child
 
-# padding set to 12px
-yabai -m config top_padding 3
+# Gaps and padding
+yabai -m config top_padding    3
 yabai -m config bottom_padding 43
-yabai -m config left_padding 63
-#yabai -m config left_padding 61
-yabai -m config right_padding 3
-yabai -m config window_gap 5
+yabai -m config left_padding   63
+#yabai -m config left_padding  61
+yabai -m config right_padding  3
+yabai -m config window_gap     5
 
-# Window modifications
-yabai -m config window_topmost on
-yabai -m config window_shadow float
-yabai -m config window_border off
-yabai -m config auto_balance off
-yabai -m config split_ratio 0.50
+# General window settings
+yabai -m config window_topmost    on
+yabai -m config window_shadow     float
+yabai -m config window_border     off
+yabai -m config auto_balance      off
+yabai -m config split_ratio       0.50
 
+#================================================================================
+# Mouse Settings
+#================================================================================
 
+# Modifier key for mouse actions (alt, cmd, ctrl, fn, shift)
+yabai -m config mouse_modifier fn
 
-for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 11)'); do
-  yabai -m space --destroy 12
+# Action for modifier + left-click drag
+yabai -m config mouse_action1 move
+
+# Action for modifier + right-click drag
+yabai -m config mouse_action2 resize
+
+# Action for dropping a window on another
+yabai -m config mouse_drop_action swap
+
+# Focus follows mouse (disabled)
+#yabai -m config focus_follows_mouse autofocus
+
+#================================================================================
+# Space Management
+#================================================================================
+# Clean up any extra spaces that might exist from previous sessions
+for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 14)'); do
+  yabai -m space --destroy 15
 done
 
+# Function to create and label spaces if they don't exist
 function setup_space {
   local idx="$1"
   local name="$2"
   local space=
-  echo "setup space $idx : $name"
 
   space=$(yabai -m query --spaces --space "$idx")
   if [ -z "$space" ]; then
@@ -42,94 +75,67 @@ function setup_space {
   yabai -m space "$idx" --label "$name"
 }
 
-setup_space 1 general-1
-setup_space 2 general-2
-setup_space 3 general-3
-setup_space 4 general-4
-setup_space 5 general-5
-setup_space 6 work
-setup_space 7 obsidian
-setup_space 8 code
-setup_space 9 spotify
+# Create and label all desired spaces
+setup_space 1  general-1
+setup_space 2  general-2
+setup_space 3  general-3
+setup_space 4  general-4
+setup_space 5  general-5
+setup_space 6  work
+setup_space 7  obsidian
+setup_space 8  code
+setup_space 9  spotify
 setup_space 10 messages
 setup_space 11 email
 setup_space 12 perso
 setup_space 13 bamboo
 setup_space 14 illustration
 
+#================================================================================
+# Rules
+#================================================================================
 
-yabai -m rule --add app="Spotify" space=^spotify
-yabai -m rule --add app="IntelliJ" space=^code
-yabai -m rule --add app="Code" space=^code
-yabai -m rule --add app="Proton Mail" space=^email
-yabai -m rule --add app="Signal" space=^messages
-yabai -m rule --add app="Messenger" space=^messages
-yabai -m rule --add app="Discord" space=^messages
-yabai -m rule --add app="Obsidian" space=^obsidian
-yabai -m rule --add app="Calendar" space=^work
-yabai -m rule --add app="Slack" space=^work
-yabai -m rule --add app="Miro" space=^work
-yabai -m rule --add app="Bambu Studio" space=^bamboo
-yabai -m rule --add app="Lightroom" space=^illustration
+# -- Assign applications to specific spaces --
+yabai -m rule --add app="^Spotify$" space=^spotify
+yabai -m rule --add app="^IntelliJ$" space=^code
+yabai -m rule --add app="^Code$" space=^code
+yabai -m rule --add app="^Proton Mail$" space=^email
+yabai -m rule --add app="^Signal$" space=^messages
+yabai -m rule --add app="^Messenger$" space=^messages
+yabai -m rule --add app="^Discord$" space=^messages
+yabai -m rule --add app="^Obsidian$" space=^obsidian
+yabai -m rule --add app="^Calendar$" space=^work
+yabai -m rule --add app="^Slack$" space=^work
+yabai -m rule --add app="^Miro$" space=^work
+yabai -m rule --add app="^Bambu Studio$" space=^bamboo
+yabai -m rule --add app="^Lightroom$" space=^illustration
 
-
-# -- mouse settings --
-
-# center mouse on window with focus
-#yabai -m config focus_follows_mouse autofocus
-
-# modifier for clicking and dragging with mouse
-yabai -m config mouse_modifier fn
-# set modifier + left-click drag to move window
-yabai -m config mouse_action1 move
-# set modifier + right-click drag to resize window
-yabai -m config mouse_action2 resize
-
-# when window is dropped in center of another window, swap them (on edges it will split it)
-yabai -m mouse_drop_action swap
-
-# Change how the split is made
-yabai -m config split_ratio
-
-# disable specific apps
+# -- Disable window management for specific applications or windows --
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Authy" manage=off
-yabai -m rule --add app="^uBar" manage=off
-yabai -m rule --add app="^Bartender" manage=off
-#yabai -m rule --add app="zoom" manage=off sticky=off sub-layer=above manage=off
-yabai -m rule --add app="zoom" manage=off sticky=off manage=off
-yabai -m rule --add app="Raycast" manage=off
-yabai -m rule --add app="superwhisper" manage=off
-yabai -m rule --add app="OpenVPN" manage=off
-#yabai -m rule --add app="Proton" manage=off
-yabai -m rule --add app="DaisyDisk" manage=off
-yabai -m rule --add app="X-Mirage" manage=off
+yabai -m rule --add app="^uBar$" manage=off
+yabai -m rule --add app="^Bartender$" manage=off
+yabai -m rule --add app="^zoom" manage=off sticky=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^superwhisper$" manage=off
+yabai -m rule --add app="^OpenVPN" manage=off
+yabai -m rule --add app="^DaisyDisk$" manage=off
+yabai -m rule --add app="^X-Mirage$" manage=off
+yabai -m rule --add app="^insta360" manage=off
+yabai -m rule --add app="^Bitwarden$" title="^Bitwarden$" sticky=on manage=off
+yabai -m rule --add app="^Steam$" title="^Steam$" sticky=on manage=off
+yabai -m rule --add app="^Finder$" title="^Copy$" manage=off
+yabai -m rule --add app="^Bambu Studio$" title="^Warning$" manage=off
+yabai -m rule --add app="^Bambu Studio$" title="^Error$" manage=off
+yabai -m rule --add app="^Root$" title="Root" manage=off
 yabai -m rule --add app='^Arc$' title='^Kevin$' manage=off
-#yabai -m rule --add app='^Proton$' title='^Kevin$' manage=off
-#yabai -m rule --add app='^Proton Mail$' title='^Proton Mail$' sticky=on manage=off
 yabai -m rule --add app='^Proton Mail$' title='^Proton Mail$' sticky=off manage=on
-yabai -m rule --add app='^Bitwarden$' title='^Bitwarden$' sticky=on manage=off
-yabai -m rule --add app='^Bambu Studio$' title='^Warning$' manage=off
-yabai -m rule --add app='^Bambu Studio$' title='^Error$' manage=off
-yabai -m rule --add app='^Root$' title='Root' manage=off
-yabai -m rule --add app='^Steam$' title='Steam' sticky=on manage=off
-yabai -m rule --add app='insta360' manage=off
-
-yabai -m rule --add app='^Finder$' title="^Copy$" manage=off
-
-#yabai -m config window_opacity on
-#yabai -m config active_window_opacity 0.98
-#yabai -m config normal_window_opacity 0.98
-
-
-sudo yabai --load-sa
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 #================================================================================
-# SketchyBar Integration Signals
+# Signals (SketchyBar Integration)
 #================================================================================
 # These signals are sent to SketchyBar to trigger UI updates.
 
@@ -144,18 +150,14 @@ yabai -m signal --add event=application_terminated \
     action="$HOME/.config/sketchybar/plugins/space.sh"
 yabai -m signal --add event=window_moved \
     action="$HOME/.config/sketchybar/plugins/space.sh"
+yabai -m signal --add event=window_created \
+    action="$HOME/.config/sketchybar/plugins/space.sh"
+yabai -m signal --add event=window_destroyed \
+    action="$HOME/.config/sketchybar/plugins/space.sh"
 
-
-#yabai -m config window_animation_duration  0.1            \
-##                window_animation_easing    ease_out_quint \
-##                insert_feedback_color      0xff9dd274     \
-##                auto_padding               on             \
-#window_opacity_duration 1.0 \
-#normal_window_opacity      1.0 \
-#active_window_opacity      1.0 \
-#                mouse_drop_action          swap           
-
-
+#================================================================================
+# External Integrations (e.g., Borders)
+#================================================================================
 
 options=(
     active_color=0xFFFFA500 # Orange
