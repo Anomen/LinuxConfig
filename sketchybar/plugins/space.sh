@@ -8,7 +8,7 @@ JQ_PATH="/opt/homebrew/bin/jq"
 args=()
 for space_idx in $($YABAI_PATH -m query --displays | $JQ_PATH -r '.[].spaces | .[]'); do
   icon_strip=$($YABAI_PATH -m query --windows --space "$space_idx" | \
-               $JQ_PATH -r '.[] | select(."is-sticky" == false and ."is-floating" == false and .app != "Finder") | .app' | \
+               $JQ_PATH -r '.[] | select(."is-sticky" == false and ."is-floating" == false and .app != "Finder" and .app != "Bitwarden") | .app' | \
                sort | \
                while IFS= read -r app_name; do
                  printf "%s " "$($HOME/.config/sketchybar/plugins/icon_map.sh "$app_name")"
