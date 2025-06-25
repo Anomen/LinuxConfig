@@ -6,9 +6,9 @@ YABAI_PATH="/opt/homebrew/bin/yabai"
 JQ_PATH="/opt/homebrew/bin/jq"
 
 # --- COLOR DEFINITIONS ---
-INACTIVE_SPACE_COLOR=0x22ffffff
+INACTIVE_SPACE_COLOR=0x11ffffff
 ACTIVE_SPACE_COLOR=0xddffffff
-INACTIVE_FONT_COLOR=0xffffffff # White
+INACTIVE_FONT_COLOR=0x88ffffff # White
 ACTIVE_FONT_COLOR=0xff1e1e2e   # A dark color (Catppuccin Macchiato Base)
 
 # Get the index of the currently focused space
