@@ -20,12 +20,12 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # Gaps and padding
-yabai -m config top_padding    3
-yabai -m config bottom_padding 43
-yabai -m config left_padding   63
+yabai -m config top_padding    13
+yabai -m config bottom_padding 53
+yabai -m config left_padding   73
 #yabai -m config left_padding  61
-yabai -m config right_padding  3
-yabai -m config window_gap     5
+yabai -m config right_padding  13
+yabai -m config window_gap     15
 
 # General window settings
 yabai -m config window_topmost    on
