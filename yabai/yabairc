@@ -109,6 +109,7 @@ yabai -m rule --add app="^Slack$" space=^work
 yabai -m rule --add app="^Miro$" space=^work
 yabai -m rule --add app="^Bambu Studio$" space=^bamboo
 yabai -m rule --add app="^Lightroom$" space=^illustration
+yabai -m rule --add app="^Gimp" space=^illustration
 
 # -- Disable window management for specific applications or windows --
 yabai -m rule --add app="^System Settings$" manage=off
