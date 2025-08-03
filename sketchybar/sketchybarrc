@@ -104,12 +104,12 @@ sketchybar --add item battery right \
     --subscribe battery system_woke power_source_change
 
 # Yabai stack indicator
-sketchybar --add item stack_indicator center \
+sketchybar --add item stack_indicator right \
            --set stack_indicator \
                  background.color=0xffFFA600 \
                  background.border_color=0xff000000 \
                  background.border_width=0 \
-                 background.corner_radius=500 \
+                 background.corner_radius=5 \
                  background.height=28 \
                  icon.drawing=off \
                  icon.font="Hack Nerd Font:Bold:18.0" \
@@ -119,9 +119,12 @@ sketchybar --add item stack_indicator center \
                  label.padding_left=25 \
                  label.padding_right=25 \
                  label.y_offset=-0 \
-                 label.font="Hack Nerd Font:Regular:14.0" \
+                 label.font="Hack Nerd Font:Regular:13.0" \
                  drawing=off \
            --subscribe stack_indicator stack_update
+
+# Initialize stack indicator script
+$PLUGIN_DIR/stack_indicator.sh
 
 #===============================================================================
 # INITIALIZE SPACES
