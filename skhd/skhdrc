@@ -76,9 +76,9 @@ ctrl + alt - k : yabai -m window --warp north
 ctrl + alt - l : yabai -m window --warp east
 
 # --- Move Window to a Different Space (and Follow Focus) ---
-ctrl + alt - left  : yabai -m window --space prev;   yabai -m space --focus prev
-ctrl + alt - right : yabai -m window --space next;   yabai -m space --focus next
-ctrl + alt - down  : yabai -m window --space recent; yabai -m space --focus recent
+ctrl + alt - left  : yabai -m window --space prev; yabai -m space --focus prev; yabai -m window --focus $(yabai -m query --windows --space | jq -r '.[] | select(."has-focus" == false) | .id' | head -1)
+ctrl + alt - right : yabai -m window --space next;   yabai -m space --focus next; yabai -m window --focus $(yabai -m query --windows --space | jq -r '.[] | select(."has-focus" == false) | .id' | head -1)
+ctrl + alt - down  : yabai -m window --space recent; yabai -m space --focus recent; yabai -m window --focus $(yabai -m query --windows --space | jq -r '.[] | select(."has-focus" == false) | .id' | head -1)
 
 # --- Move Window to a Specific Space (and Follow Focus) ---
 shift + alt - 1 : yabai -m window --space general-1; yabai -m space --focus general-1
@@ -139,20 +139,21 @@ shift + alt - y : yabai -m space --mirror y-axis
 # Toggle window floating state
 home          : yabai -m window --toggle float --grid 4:4:1:1:2:2
 shift + alt - f : yabai -m window --toggle float --grid 4:4:1:1:2:2
+shift + alt - t : /Users/anomen/.vickev/yabai/toggle_layout.sh
 
 # Toggle BSP layout splitting for the next window insertion point
 alt - q : yabai -m window --toggle split
 
 # --- Stacking ---
 # Create or add to a window stack in a given direction
-rcmd + ralt - w : yabai -m window --stack north
-rcmd + ralt - a : yabai -m window --stack west
-rcmd + ralt - s : yabai -m window --stack south
-rcmd + ralt - d : yabai -m window --stack east
+shift + alt + ctrl - k : yabai -m window --stack north && yabai -m window --focus stack.first
+shift + alt + ctrl - h : yabai -m window --stack west && yabai -m window --focus stack.first
+shift + alt + ctrl - j : yabai -m window --stack south && yabai -m window --focus stack.first
+shift + alt + ctrl - l : yabai -m window --stack east && yabai -m window --focus stack.first
 
 # Cycle through windows within a stack
-rcmd + ralt - q : yabai -m window --focus stack.prev
-rcmd + ralt - e : yabai -m window --focus stack.next
+shift + alt - left : yabai -m window --focus stack.prev
+shift + alt - right : yabai -m window --focus stack.next
 
 
 # -----------------------------------------------------------------------------

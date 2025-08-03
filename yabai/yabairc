@@ -65,13 +65,14 @@ done
 function setup_space {
   local idx="$1"
   local name="$2"
-  local space=
+  local layout="bsp"
 
   space=$(yabai -m query --spaces --space "$idx")
   if [ -z "$space" ]; then
     yabai -m space --create
   fi
 
+  yabai -m space "$idx" --layout "$layout"
   yabai -m space "$idx" --label "$name"
 }
 
@@ -88,7 +89,7 @@ setup_space 9  spotify
 setup_space 10 messages
 setup_space 11 email
 setup_space 12 perso
-setup_space 13 bamboo
+setup_space 13 bamboo stack
 setup_space 14 illustration
 
 #================================================================================
@@ -108,7 +109,8 @@ yabai -m rule --add app="^Calendar$" space=^work
 yabai -m rule --add app="^Slack$" space=^work
 yabai -m rule --add app="^Miro$" space=^work
 yabai -m rule --add app="^Bambu Studio$" space=^bamboo
-yabai -m rule --add app="^Lightroom$" space=^illustration
+yabai -m rule --add app="Fusion" space=^bamboo
+yabai -m rule --add app="Lightroom" space=^illustration
 yabai -m rule --add app="^Gimp" space=^illustration
 
 # -- Disable window management for specific applications or windows --
@@ -142,6 +144,16 @@ yabai -m rule --add app="${JB_Apps}" title!=".*\[.*\].*" manage=off
 # Signals (SketchyBar Integration)
 #================================================================================
 # These signals are sent to SketchyBar to trigger UI updates.
+
+# When a window is focused, update the stack indicator
+# Update stack indicator on relevant events
+for event in window_focused application_launched application_terminated \
+             window_created window_destroyed window_stacked window_unstacked \
+             window_moved window_resized space_changed display_changed; do
+  yabai -m signal --add event="$event" \
+      action="$HOME/.config/sketchybar/plugins/stack_indicator.sh"
+done
+
 
 # "Fast Path": This runs instantly when you switch spaces.
 yabai -m signal --add event=space_changed \
