@@ -65,7 +65,10 @@ done
 function setup_space {
   local idx="$1"
   local name="$2"
-  local layout="bsp"
+  local layout="$3"
+
+  # Default layout is bsp if not specified
+  layout="${layout:-bsp}"
 
   space=$(yabai -m query --spaces --space "$idx")
   if [ -z "$space" ]; then
@@ -109,9 +112,17 @@ yabai -m rule --add app="^Calendar$" space=^work
 yabai -m rule --add app="^Slack$" space=^work
 yabai -m rule --add app="^Miro$" space=^work
 yabai -m rule --add app="^Bambu Studio$" space=^bamboo
-yabai -m rule --add app="Fusion" space=^bamboo
+yabai -m rule --add app="^Fusion" space=^bamboo
 yabai -m rule --add app="Lightroom" space=^illustration
 yabai -m rule --add app="^Gimp" space=^illustration
+
+yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" mouse_follows_focus=off
+yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" manage=off
+yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" focus_follows_mouse=off
+yabai -m rule --add app="^Fusion$" mouse_follows_focus=off
+yabai -m rule --add app="^Fusion$" manage=off
+yabai -m rule --add app="^Fusion$" focus_follows_mouse=off
+
 
 # -- Disable window management for specific applications or windows --
 yabai -m rule --add app="^System Settings$" manage=off
