@@ -154,7 +154,7 @@ yabai -m rule --add app="^Root$" title="Root" manage=off
 yabai -m rule --add app='^Arc$' title='^Kevin$' manage=off
 yabai -m rule --add app='^Proton Mail$' title='^Proton Mail$' sticky=off manage=on
 
-JB_Apps='^(CLion|PyCharm|IntelliJ IDEA)$'
+JB_Apps='^(WebStorm|CLion|PyCharm|IntelliJ IDEA)$'
 yabai -m rule --add app="${JB_Apps}" title!=".*\[.*\].*" manage=off
 
 #================================================================================
