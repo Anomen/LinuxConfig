@@ -108,6 +108,7 @@ setup_space 14 illustration
 # -- Assign applications to specific spaces --
 yabai -m rule --add app="^Spotify$" space=^spotify
 yabai -m rule --add app="^IntelliJ$" space=^code
+yabai -m rule --add app="^Cursor$" space=^code
 yabai -m rule --add app="^Code$" space=^code
 yabai -m rule --add app="^Proton Mail$" space=^email
 yabai -m rule --add app="^Signal$" space=^messages
@@ -118,10 +119,10 @@ yabai -m rule --add app="^Calendar$" space=^work
 yabai -m rule --add app="^Slack$" space=^work
 yabai -m rule --add app="^Miro$" space=^work
 yabai -m rule --add app="^Bambu Studio$" space=^bamboo
-yabai -m rule --add app="^Fusion" space=^bamboo
 yabai -m rule --add app="Lightroom" space=^illustration
 yabai -m rule --add app="^Gimp" space=^illustration
 
+yabai -m rule --add app="^Fusion" space=^bamboo
 yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" mouse_follows_focus=off
 yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" manage=off
 yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" focus_follows_mouse=off
@@ -131,6 +132,7 @@ yabai -m rule --add app="^Fusion$" focus_follows_mouse=off
 
 
 # -- Disable window management for specific applications or windows --
+yabai -m rule --add app="CleanShot X" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
@@ -153,6 +155,8 @@ yabai -m rule --add app="^Bambu Studio$" title="^Error$" manage=off
 yabai -m rule --add app="^Root$" title="Root" manage=off
 yabai -m rule --add app='^Arc$' title='^Kevin$' manage=off
 yabai -m rule --add app='^Proton Mail$' title='^Proton Mail$' sticky=off manage=on
+
+yabai -m rule --add app='^Cypress$' manage=off
 
 JB_Apps='^(WebStorm|CLion|PyCharm|IntelliJ IDEA)$'
 yabai -m rule --add app="${JB_Apps}" title!=".*\[.*\].*" manage=off
