@@ -140,8 +140,8 @@ yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Authy" manage=off
 yabai -m rule --add app="^uBar$" manage=off
 yabai -m rule --add app="^Bartender$" manage=off
-yabai -m rule --add app="^zoom" manage=off sticky=off
-yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^zoom" manage=on sticky=on
+yabai -m rule --add app="^Raycast$" manage=off sticky=on
 yabai -m rule --add app="^superwhisper$" manage=off
 yabai -m rule --add app="^OpenVPN" manage=off
 yabai -m rule --add app="^DaisyDisk$" manage=off
