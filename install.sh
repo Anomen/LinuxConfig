@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf ~/.inputrc ~/.tmux ~/.config/yabai ~/.config/skhd ~/.config/sketchybar* ~/.p10k.zsh
+rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf ~/.inputrc ~/.tmux ~/.config/yabai ~/.config/skhd ~/.config/sketchybar* ~/.p10k.zsh ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
 ln -s ~/.vickev/vim/vimrc ~/.vimrc
 ln -s ~/.vickev/zsh/zshrc ~/.zshrc
 ln -s ~/.vickev/tmux/tmux.conf ~/.tmux.conf
@@ -13,6 +13,7 @@ ln -s ~/.vickev/skhd ~/.config/skhd
 ln -s ~/.vickev/sketchybar ~/.config/sketchybar
 ln -s ~/.vickev/sketchybarrc ~/.config/sketchybarrc
 ln -s ~/.vickev/p10k.zsh ~/.p10k.zsh
+ln -s ~/.vickev/ghostty/config.ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
 
 ## Install fish
 #if [ "$OSTYPE" = "linux-gnu" ] ; then

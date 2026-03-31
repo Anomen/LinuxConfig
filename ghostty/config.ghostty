@@ -1,0 +1,10 @@
+# Set background opacity to 30% (70% transparent)
+background-opacity = 0.90
+
+# Set cursor to a square (block)
+cursor-style = block
+
+# Disable cursor blinking
+cursor-style-blink = false
+
+theme = Catppuccin Macchiato

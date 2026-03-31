@@ -23,6 +23,7 @@ yabai -m config window_placement second_child
 yabai -m config top_padding    13
 yabai -m config bottom_padding 53
 yabai -m config left_padding   73
+#yabai -m config left_padding   41
 yabai -m config right_padding  13
 yabai -m config window_gap     15
 
@@ -140,7 +141,7 @@ yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Authy" manage=off
 yabai -m rule --add app="^uBar$" manage=off
 yabai -m rule --add app="^Bartender$" manage=off
-yabai -m rule --add app="^zoom" manage=on sticky=on
+yabai -m rule --add app="^zoom" manage=off sticky=on
 yabai -m rule --add app="^Raycast$" manage=off sticky=on
 yabai -m rule --add app="^superwhisper$" manage=off
 yabai -m rule --add app="^OpenVPN" manage=off
@@ -155,8 +156,8 @@ yabai -m rule --add app="^Bambu Studio$" title="^Error$" manage=off
 yabai -m rule --add app="^Root$" title="Root" manage=off
 yabai -m rule --add app='^Arc$' title='^Kevin$' manage=off
 yabai -m rule --add app='^Proton Mail$' title='^Proton Mail$' sticky=off manage=on
-
 yabai -m rule --add app='^Cypress$' manage=off
+yabai -m rule --add app="Todoist" manage=off
 
 JB_Apps='^(WebStorm|CLion|PyCharm|IntelliJ IDEA)$'
 yabai -m rule --add app="${JB_Apps}" title!=".*\[.*\].*" manage=off

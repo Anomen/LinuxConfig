@@ -13,3 +13,5 @@ git config --global merge.tool vimdiff
 git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt false
 
+
+export PATH="$PATH:$HOME/.local/bin"
