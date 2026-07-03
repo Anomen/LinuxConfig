@@ -1,3 +1,12 @@
+shell-integration = zsh
+
+copy-on-select = true
+#macos-titlebar-style = hidden
+macos-option-as-alt = true
+
+confirm-close-surface = false
+quit-after-last-window-closed = false
+
 # Set background opacity to 30% (70% transparent)
 background-opacity = 0.90
 
@@ -8,3 +17,5 @@ cursor-style = block
 cursor-style-blink = false
 
 theme = Catppuccin Macchiato
+
+window-save-state = never

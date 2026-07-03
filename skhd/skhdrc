@@ -48,7 +48,7 @@ alt - w : yabai -m space --focus work
 alt - p : yabai -m space --focus perso
 alt - e : yabai -m space --focus email
 alt - b : yabai -m space --focus bamboo
-alt - i : yabai -m space --focus illustration
+alt - a : yabai -m space --focus autodesk
 alt - 0x32 : yabai -m space --focus work
 
 # --- Window Cycling ---

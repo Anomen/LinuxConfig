@@ -29,4 +29,4 @@ echo 'source ~/.vickev/bashrc' >> ~/.bashrc
 # Install zsh
 #git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 #echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
-brew install powerlevel10k zsh-autosuggestions zsh-syntax-highlighting eza zoxide fzf-tab atuin
+brew install powerlevel10k zsh-autosuggestions zsh-syntax-highlighting eza zoxide fzf-tab atuin bat fzf chafa

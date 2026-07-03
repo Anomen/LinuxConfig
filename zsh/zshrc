@@ -86,3 +86,6 @@ if [ -f '/Users/kevinvicrey/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kev
 
 # Added by Antigravity
 export PATH="/Users/anomen/.antigravity/antigravity/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/anomen/.antigravity-ide/antigravity-ide/bin:$PATH"

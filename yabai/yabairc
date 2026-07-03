@@ -100,8 +100,8 @@ setup_space 9  spotify
 setup_space 10 messages
 setup_space 11 email
 setup_space 12 perso
-setup_space 13 bamboo stack
-setup_space 14 illustration
+setup_space 13 autodesk
+setup_space 14 bamboo
 
 #================================================================================
 # Rules
@@ -121,16 +121,16 @@ yabai -m rule --add app="^Calendar$" space=^work
 yabai -m rule --add app="^Slack$" space=^work
 yabai -m rule --add app="^Miro$" space=^work
 yabai -m rule --add app="^Bambu Studio$" space=^bamboo
-yabai -m rule --add app="Lightroom" space=^illustration
-yabai -m rule --add app="^Gimp" space=^illustration
+#yabai -m rule --add app="Lightroom" space=^illustration
+#yabai -m rule --add app="^Gimp" space=^illustration
 
-yabai -m rule --add app="^Fusion" space=^bamboo
-yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" mouse_follows_focus=off
-yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" manage=off
-yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" focus_follows_mouse=off
-yabai -m rule --add app="^Fusion$" mouse_follows_focus=off
-yabai -m rule --add app="^Fusion$" manage=off
-yabai -m rule --add app="^Fusion$" focus_follows_mouse=off
+yabai -m rule --add app="^Fusion" space=^autodesk
+#yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" mouse_follows_focus=off
+#yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" manage=off
+#yabai -m rule --add app="^Fusion$" subrole="^AXDialog$" focus_follows_mouse=off
+#yabai -m rule --add app="^Fusion$" mouse_follows_focus=off
+#yabai -m rule --add app="^Fusion$" manage=off
+#yabai -m rule --add app="^Fusion$" focus_follows_mouse=off
 
 
 # -- Disable window management for specific applications or windows --
@@ -211,3 +211,17 @@ options=(
 )
 
 borders "${options[@]}"
+
+# AUTODESK FIX
+yabai -m signal --add event=system_woke action='sleep 0 && \
+  main_space=$(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXStandardWindow\") | .space" | head -n1); \
+  for wid in $(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXDialog\") | .id"); do \
+    yabai -m window $wid --space $main_space; \
+  done'
+
+yabai -m signal --add event=display_added action='sleep 0 && \
+  main_space=$(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXStandardWindow\") | .space" | head -n1); \
+  for wid in $(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXDialog\") | .id"); do \
+    yabai -m window $wid --space $main_space; \
+  done'
+
