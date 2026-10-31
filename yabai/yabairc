@@ -164,6 +164,20 @@ yabai -m rule --add app="Gemini" manage=off
 JB_Apps='^(WebStorm|CLion|PyCharm|IntelliJ IDEA)$'
 yabai -m rule --add app="${JB_Apps}" title!=".*\[.*\].*" manage=off
 
+# AUTODESK FIX
+yabai -m signal --add event=system_woke action='sleep 0 && \
+  main_space=$(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXStandardWindow\") | .space" | head -n1); \
+  for wid in $(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXDialog\") | .id"); do \
+    yabai -m window $wid --space $main_space; \
+  done'
+
+yabai -m signal --add event=display_added action='sleep 0 && \
+  main_space=$(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXStandardWindow\") | .space" | head -n1); \
+  for wid in $(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXDialog\") | .id"); do \
+    yabai -m window $wid --space $main_space; \
+  done'
+
+
 #================================================================================
 # Signals (SketchyBar Integration)
 #================================================================================
@@ -212,17 +226,4 @@ options=(
 )
 
 borders "${options[@]}"
-
-# AUTODESK FIX
-yabai -m signal --add event=system_woke action='sleep 0 && \
-  main_space=$(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXStandardWindow\") | .space" | head -n1); \
-  for wid in $(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXDialog\") | .id"); do \
-    yabai -m window $wid --space $main_space; \
-  done'
-
-yabai -m signal --add event=display_added action='sleep 0 && \
-  main_space=$(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXStandardWindow\") | .space" | head -n1); \
-  for wid in $(yabai -m query --windows | jq -r ".[] | select(.app==\"Fusion\" and .subrole==\"AXDialog\") | .id"); do \
-    yabai -m window $wid --space $main_space; \
-  done'
 

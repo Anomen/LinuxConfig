@@ -49,7 +49,7 @@ alt - p : yabai -m space --focus perso
 alt - e : yabai -m space --focus email
 alt - b : yabai -m space --focus bamboo
 alt - a : yabai -m space --focus autodesk
-alt - 0x32 : yabai -m space --focus work
+#alt - 0x32 : yabai -m space --focus work
 
 # --- Window Cycling ---
 # Cycle through all visible windows in the current space

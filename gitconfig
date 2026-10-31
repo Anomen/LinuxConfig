@@ -1,7 +1,7 @@
-[user]
-	name = Kevin Vicrey
-	email = kevin.vicrey@lightspeedhq.com
-	signingkey = /Users/kevinvicrey/.ssh/gh_signing_ed25519_2026-07-09T14:49:08Z.pub
+#[user]
+#	name = Kevin Vicrey
+#	email = kevin.vicrey@lightspeedhq.com
+#	signingkey = /Users/kevinvicrey/.ssh/gh_signing_ed25519_2026-07-09T14:49:08Z.pub
 #[core]
 #    excludesfile = /home/msi/.config/git/gitignore_global
 [color]
@@ -60,3 +60,6 @@
 	gpgsign = true
 [gpg "ssh"]
 	allowedSignersFile = /Users/kevinvicrey/.ssh/allowed_signers
+[user]
+	email = kevin.vicrey@nexu.org
+	name = Kevin Vicrey
