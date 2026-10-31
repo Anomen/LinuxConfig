@@ -142,7 +142,7 @@ yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Authy" manage=off
 yabai -m rule --add app="^uBar$" manage=off
 yabai -m rule --add app="^Bartender$" manage=off
-yabai -m rule --add app="^zoom" manage=off sticky=on
+yabai -m rule --add app="z|Zoom" manage=on sticky=on
 yabai -m rule --add app="^Raycast$" manage=off sticky=on
 yabai -m rule --add app="^superwhisper$" manage=off
 yabai -m rule --add app="^OpenVPN" manage=off
@@ -159,6 +159,7 @@ yabai -m rule --add app='^Arc$' title='^Kevin$' manage=off
 yabai -m rule --add app='^Proton Mail$' title='^Proton Mail$' sticky=off manage=on
 yabai -m rule --add app='^Cypress$' manage=off
 yabai -m rule --add app="Todoist" manage=off
+yabai -m rule --add app="Gemini" manage=off
 
 JB_Apps='^(WebStorm|CLion|PyCharm|IntelliJ IDEA)$'
 yabai -m rule --add app="${JB_Apps}" title!=".*\[.*\].*" manage=off

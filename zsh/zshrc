@@ -89,3 +89,14 @@ export PATH="/Users/anomen/.antigravity/antigravity/bin:$PATH"
 
 # Added by Antigravity IDE
 export PATH="/Users/anomen/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# ftl-onboard: fzf
+source <(fzf --zsh)
+# Superluminal activation -- begin
+source <(ftl activate)
+if output=$(ftl news 2>&1) && [[ -n "$output" ]]; then
+    echo "$output"
+fi
+# Superluminal activation -- end
+#
+export GH_TOKEN=$(security find-generic-password -a "$USER" -s "GH_TOKEN" -w)

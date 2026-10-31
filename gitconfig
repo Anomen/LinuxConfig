@@ -1,6 +1,7 @@
 [user]
 	name = Kevin Vicrey
-    email = kevin.vicrey@nexu.org
+	email = kevin.vicrey@lightspeedhq.com
+	signingkey = /Users/kevinvicrey/.ssh/gh_signing_ed25519_2026-07-09T14:49:08Z.pub
 #[core]
 #    excludesfile = /home/msi/.config/git/gitignore_global
 [color]
@@ -45,8 +46,17 @@
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /Users/kevinvicrey/.ssh/allowed_signers
