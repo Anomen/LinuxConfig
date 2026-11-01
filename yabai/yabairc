@@ -208,6 +208,10 @@ yabai -m signal --add event=window_created \
     action="$HOME/.config/sketchybar/plugins/space.sh"
 yabai -m signal --add event=window_destroyed \
     action="$HOME/.config/sketchybar/plugins/space.sh"
+for event in window_minimized window_deminimized application_hidden application_visible; do
+  yabai -m signal --add event="$event" \
+      action="$HOME/.config/sketchybar/plugins/space.sh"
+done
 
 #================================================================================
 # External Integrations (e.g., Borders)
