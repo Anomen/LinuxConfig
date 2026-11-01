@@ -150,6 +150,7 @@ yabai -m rule --add app="^DaisyDisk$" manage=off
 yabai -m rule --add app="^X-Mirage$" manage=off
 yabai -m rule --add app="^insta360" manage=off
 yabai -m rule --add app="^Bitwarden$" title="^Bitwarden$" sticky=on manage=off
+yabai -m rule --add title="^Extension: \(Bitwarden Password Manager\) - Bitwarden$" manage=off sticky=on
 yabai -m rule --add app="^Steam$" title="^Steam$" sticky=on manage=off
 yabai -m rule --add app="^Finder$" title="^Copy$" manage=off
 yabai -m rule --add app="^Bambu Studio$" title="^Warning$" manage=off
