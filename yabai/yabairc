@@ -161,6 +161,7 @@ yabai -m rule --add app='^Proton Mail$' title='^Proton Mail$' sticky=off manage=
 yabai -m rule --add app='^Cypress$' manage=off
 yabai -m rule --add app="Todoist" manage=off
 yabai -m rule --add app="Gemini" manage=off
+yabai -m rule --add app="AppCleaner" manage=off
 
 JB_Apps='^(WebStorm|CLion|PyCharm|IntelliJ IDEA)$'
 yabai -m rule --add app="${JB_Apps}" title!=".*\[.*\].*" manage=off
