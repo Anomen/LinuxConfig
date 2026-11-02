@@ -5,6 +5,7 @@
 # @raycast.title New Zen Window Here
 # @raycast.mode silent
 # @raycast.packageName Zen Browser
+# @raycast.icon 🤖
 
 osascript -e '
 if application "Zen" is running then
