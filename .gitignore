@@ -1,3 +1,4 @@
 *.swp
 .DS_Store
 gitconfig
+karabiner/automatic_backups/

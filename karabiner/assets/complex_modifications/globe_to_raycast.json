@@ -1,0 +1,29 @@
+{
+  "title": "Globe/Fn to Raycast",
+  "rules": [
+    {
+      "description": "Tap Globe/Fn alone for F18 (Raycast), hold for Fn",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "fn",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "f18"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

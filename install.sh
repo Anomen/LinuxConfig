@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf ~/.inputrc ~/.tmux ~/.config/yabai ~/.config/skhd ~/.config/sketchybar* ~/.p10k.zsh ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
+rm -rfv ~/.vimrc ~/.zshrc ~/.tmux.conf ~/.gitconfig ~/.config/fish ~/.config/omf ~/.inputrc ~/.tmux ~/.config/yabai ~/.config/skhd ~/.config/karabiner ~/.config/sketchybar* ~/.p10k.zsh ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
 ln -s ~/.vickev/vim/vimrc ~/.vimrc
 ln -s ~/.vickev/zsh/zshrc ~/.zshrc
 ln -s ~/.vickev/tmux/tmux.conf ~/.tmux.conf
@@ -10,6 +10,7 @@ ln -s ~/.vickev/fish ~/.config/fish
 ln -s ~/.vickev/omf ~/.config/omf
 ln -s ~/.vickev/yabai ~/.config/yabai
 ln -s ~/.vickev/skhd ~/.config/skhd
+ln -s ~/.vickev/karabiner ~/.config/karabiner
 ln -s ~/.vickev/sketchybar ~/.config/sketchybar
 ln -s ~/.vickev/sketchybarrc ~/.config/sketchybarrc
 ln -s ~/.vickev/p10k.zsh ~/.p10k.zsh
